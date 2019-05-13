@@ -1,0 +1,22 @@
+esphome:
+  name: esp_button
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: "DolenjcInStajerc"
+  password: "stanovanje744"
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+binary_sensor:
+  - platform: gpio
+    id: simple_button
+    name: "Simple Button"
+    pin: D7

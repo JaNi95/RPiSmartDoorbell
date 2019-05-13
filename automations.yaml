@@ -1,0 +1,21 @@
+- id: check_random_sensor_show_notification_value
+  alias: Check sensor value and show notification
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.random_sensor
+    above: 10
+  action:
+    service: persistent_notification.create
+    data:
+      message: Sensor value greater than 10
+- id: switch_led_with_button
+  alias: Switch LED state with button
+  trigger:
+  - entity_id: binary_sensor.simple_button_2
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.simple_led_light
+    service: switch.toggle
